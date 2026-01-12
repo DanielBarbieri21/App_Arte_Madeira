@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Arte &amp; Madeira</string>
+    
+    <!-- Login -->
+    <string name="title_login">Login</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_senha">Senha</string>
+    <string name="btn_entrar">Entrar</string>
+    <string name="msg_login_sucesso">Login realizado com sucesso!</string>
+    <string name="msg_erro_login">Erro ao fazer login. Verifique suas credenciais.</string>
+    <string name="msg_campos_obrigatorios">Preencha todos os campos</string>
+    
+    <!-- Main Menu -->
+    <string name="menu_clientes">Clientes</string>
+    <string name="menu_pedidos">Pedidos</string>
+    <string name="menu_produtos">Produtos</string>
+    <string name="menu_estoque">Estoque</string>
+    <string name="menu_relatorios">Relatórios</string>
+    <string name="menu_sair">Sair</string>
+    
+    <!-- Clientes -->
+    <string name="title_clientes">Clientes</string>
+    <string name="title_cadastro_cliente">Cadastro de Cliente</string>
+    <string name="hint_nome">Nome</string>
+    <string name="hint_telefone">Telefone</string>
+    <string name="hint_endereco">Endereço</string>
+    <string name="btn_salvar">Salvar</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="msg_cliente_salvo">Cliente salvo com sucesso!</string>
+    <string name="msg_erro_salvar_cliente">Erro ao salvar cliente</string>
+    <string name="msg_confirmar_exclusao_cliente">Deseja realmente excluir este cliente?</string>
+    <string name="msg_cliente_excluido">Cliente excluído com sucesso</string>
+    
+    <!-- Pedidos -->
+    <string name="title_pedidos">Pedidos</string>
+    <string name="title_cadastro_pedido">Cadastro de Pedido</string>
+    <string name="hint_cliente">Cliente</string>
+    <string name="hint_selecione_cliente">Selecione o cliente</string>
+    <string name="hint_descricao_movel">Descrição do Móvel</string>
+    <string name="hint_prazo_entrega">Prazo de Entrega</string>
+    <string name="hint_valor_estimado">Valor Estimado</string>
+    <string name="hint_observacoes">Observações</string>
+    <string name="label_status">Status</string>
+    <string name="label_data_pedido">Data do Pedido</string>
+    <string name="msg_pedido_salvo">Pedido salvo com sucesso!</string>
+    <string name="msg_erro_salvar_pedido">Erro ao salvar pedido</string>
+    <string name="msg_confirmar_exclusao_pedido">Deseja realmente excluir este pedido?</string>
+    <string name="msg_pedido_excluido">Pedido excluído com sucesso</string>
+    <string name="msg_selecione_cliente">Selecione um cliente</string>
+    
+    <!-- Produtos -->
+    <string name="title_produtos">Produtos</string>
+    <string name="title_cadastro_produto">Cadastro de Produto</string>
+    <string name="hint_nome_produto">Nome do Produto</string>
+    <string name="hint_descricao">Descrição</string>
+    <string name="hint_categoria">Categoria</string>
+    <string name="hint_tempo_producao">Tempo de Produção (dias)</string>
+    <string name="hint_valor_base">Valor Base</string>
+    <string name="msg_produto_salvo">Produto salvo com sucesso!</string>
+    <string name="msg_erro_salvar_produto">Erro ao salvar produto</string>
+    
+    <!-- Estoque -->
+    <string name="title_estoque">Controle de Estoque</string>
+    <string name="title_cadastro_material">Cadastro de Material</string>
+    <string name="hint_nome_material">Nome do Material</string>
+    <string name="hint_unidade">Unidade (kg, m³, un)</string>
+    <string name="hint_quantidade_estoque">Quantidade em Estoque</string>
+    <string name="hint_quantidade_minima">Quantidade Mínima</string>
+    <string name="hint_valor_unitario">Valor Unitário</string>
+    <string name="hint_fornecedor">Fornecedor</string>
+    <string name="label_materiais_reposicao">Materiais para Reposição</string>
+    <string name="msg_material_salvo">Material salvo com sucesso!</string>
+    <string name="msg_erro_salvar_material">Erro ao salvar material</string>
+    <string name="msg_alerta_reposicao">Estoque abaixo do mínimo!</string>
+    
+    <!-- Relatórios -->
+    <string name="title_relatorios">Relatórios</string>
+    <string name="relatorio_pedidos_periodo">Pedidos por Período</string>
+    <string name="relatorio_vendas">Vendas</string>
+    <string name="relatorio_estoque">Estoque</string>
+    <string name="relatorio_clientes">Clientes</string>
+    
+    <!-- Status Produção -->
+    <string name="status_pendente">Pendente</string>
+    <string name="status_em_producao">Em Produção</string>
+    <string name="status_concluido">Concluído</string>
+    <string name="status_cancelado">Cancelado</string>
+    
+    <!-- Common -->
+    <string name="btn_novo">Novo</string>
+    <string name="btn_editar">Editar</string>
+    <string name="btn_excluir">Excluir</string>
+    <string name="btn_buscar">Buscar</string>
+    <string name="btn_filtrar">Filtrar</string>
+    <string name="btn_sim">Sim</string>
+    <string name="btn_nao">Não</string>
+    <string name="msg_lista_vazia">Nenhum registro encontrado</string>
+    <string name="msg_erro_carregar_dados">Erro ao carregar dados</string>
+    <string name="msg_confirmar_exclusao">Deseja realmente excluir?</string>
+    <string name="hint_buscar">Buscar...</string>
+    
+    <!-- Navigation -->
+    <string name="navigation_drawer_open">Abrir menu</string>
+    <string name="navigation_drawer_close">Fechar menu</string>
+</resources>
