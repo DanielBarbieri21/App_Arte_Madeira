@@ -8,6 +8,9 @@ import kotlinx.coroutines.tasks.await
 
 class ClienteRepository {
     
+    // Dados mock em memória para teste
+    private val clientesMock = mutableListOf<Cliente>()
+    
     private val db = FirebaseFirestore.getInstance()
     private val collection = db.collection(Constants.COLLECTION_CLIENTES)
     
@@ -29,16 +32,18 @@ class ClienteRepository {
     
     suspend fun buscarClientes(): Result<List<Cliente>> {
         return try {
-            val snapshot = collection
-                .whereEqualTo("ativo", true)
-                .orderBy("nome", Query.Direction.ASCENDING)
-                .get()
-                .await()
-            
-            val clientes = snapshot.documents.mapNotNull { doc ->
-                doc.toObject(Cliente::class.java)?.copy(id = doc.id)
+            // Modo mock - dados de exemplo
+            if (clientesMock.isEmpty()) {
+                clientesMock.addAll(listOf(
+                    Cliente(id = "1", nome = "João Silva", telefone = "11987654321", 
+                           email = "joao@email.com", endereco = "Rua A, 123"),
+                    Cliente(id = "2", nome = "Maria Santos", telefone = "11976543210",
+                           email = "maria@email.com", endereco = "Av. B, 456"),
+                    Cliente(id = "3", nome = "Pedro Costa", telefone = "11965432109",
+                           email = "pedro@email.com", endereco = "Praça C, 789")
+                ))
             }
-            Result.success(clientes)
+            Result.success(clientesMock.filter { it.ativo }.sortedBy { it.nome })
         } catch (e: Exception) {
             Result.failure(e)
         }

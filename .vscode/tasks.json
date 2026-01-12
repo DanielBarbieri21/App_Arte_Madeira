@@ -1,0 +1,141 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Gradle Build APK",
+      "type": "shell",
+      "command": "./gradlew",
+      "args": ["build"],
+      "options": {
+        "cwd": "${workspaceFolder}/app"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build APK Release",
+      "type": "shell",
+      "command": "./gradlew",
+      "args": ["assembleRelease"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build APK Debug",
+      "type": "shell",
+      "command": "./gradlew",
+      "args": ["assembleDebug"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Install APK on Device",
+      "type": "shell",
+      "command": "adb",
+      "args": ["install", "-r", "${workspaceFolder}/app/build/outputs/apk/debug/app-debug.apk"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "dependsOn": ["Build APK Debug"]
+    },
+    {
+      "label": "Run App on Device",
+      "type": "shell",
+      "command": "adb",
+      "args": ["shell", "am", "start", "-n", "com.arteemadeira.app/.ui.login.LoginActivity"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Connect and Deploy",
+      "type": "shell",
+      "command": "PowerShell",
+      "args": ["-Command", "${workspaceFolder}/deploy.ps1"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "windows": {
+        "options": {
+          "shell": {
+            "executable": "PowerShell",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass"]
+          }
+        }
+      }
+    },
+    {
+      "label": "Check Connected Devices",
+      "type": "shell",
+      "command": "adb",
+      "args": ["devices"],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean Project",
+      "type": "shell",
+      "command": "./gradlew",
+      "args": ["clean"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

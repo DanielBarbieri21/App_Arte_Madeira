@@ -61,17 +61,12 @@ class LoginActivity : AppCompatActivity() {
         binding.progressBar.visible()
         binding.btnEntrar.isEnabled = false
 
-        auth.signInWithEmailAndPassword(email, senha)
-            .addOnSuccessListener {
-                binding.progressBar.gone()
-                showToast("Login realizado com sucesso!")
-                navegarParaMain()
-            }
-            .addOnFailureListener { exception ->
-                binding.progressBar.gone()
-                binding.btnEntrar.isEnabled = true
-                showToast("Erro ao fazer login: ${exception.message}")
-            }
+        // Login mock - aceita qualquer email/senha
+        binding.progressBar.postDelayed({
+            binding.progressBar.gone()
+            showToast("Login realizado com sucesso!")
+            navegarParaMain()
+        }, 500)
     }
 
     private fun navegarParaMain() {

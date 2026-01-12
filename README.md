@@ -145,9 +145,7 @@ Este é um projeto acadêmico com dados fictícios para demonstração:
 - **CNPJ**: 11.222.333/0001-44
 - **Endereço**: Rua das Acácias, nº 145 – Nova Esperança/MG
 
-## 📄 Licença
 
-Este projeto é desenvolvido para fins acadêmicos.
 
 ## 👨‍💻 Autor
 
