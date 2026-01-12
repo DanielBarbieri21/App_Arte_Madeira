@@ -81,8 +81,8 @@ captures/
 .externalNativeBuild
 
 # Google Services (e.g. APIs or Firebase)
-# Uncomment if you want to ignore the google-services.json
-# google-services.json
+# google-services.json must be ignored to protect API keys
+google-services.json
 
 # Version control
 vcs.xml
