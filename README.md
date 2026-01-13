@@ -147,10 +147,14 @@ Este é um projeto acadêmico com dados fictícios para demonstração:
 
 
 
-## 👨‍💻 Autor
+---
 
-Projeto de Extensão - Desenvolvimento de Sistema Digital para Controle de Produção
+🛠️ **Software desenvolvido por Daniel Barbieri**  
+Engenheiro de Software | Full Stack Developer  
 
-## 📞 Suporte
+Código construído com foco em eficiência, organização, escalabilidade e boas práticas de desenvolvimento.
 
-Para dúvidas ou sugestões, entre em contato através do e-mail institucional.
+🌐 GitHub: https://github.com/DanielBarbieri21  
+💼 LinkedIn: https://www.linkedin.com/in/daniel-barbieri-4990462a/
+
+---
