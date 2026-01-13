@@ -4,24 +4,18 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arteemadeira.app.R
+import com.arteemadeira.app.data.mock.MockData
 import com.arteemadeira.app.data.model.Pedido
-import com.arteemadeira.app.data.repository.PedidoRepository
 import com.arteemadeira.app.databinding.ActivityListaClientesBinding
-import com.arteemadeira.app.util.gone
 import com.arteemadeira.app.util.showToast
-import com.arteemadeira.app.util.visible
-import kotlinx.coroutines.launch
 
 class ListaPedidosActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityListaClientesBinding
     private lateinit var adapter: PedidoAdapter
-    private lateinit var repository: PedidoRepository
     private var pedidos = mutableListOf<Pedido>()
 
     private val cadastroLauncher = registerForActivityResult(
@@ -36,8 +30,6 @@ class ListaPedidosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityListaClientesBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        repository = PedidoRepository()
 
         setupToolbar()
         setupRecyclerView()
@@ -66,30 +58,13 @@ class ListaPedidosActivity : AppCompatActivity() {
             val intent = Intent(this, CadastroPedidoActivity::class.java)
             cadastroLauncher.launch(intent)
         }
-
-        binding.tilBusca.gone()
     }
 
     private fun carregarPedidos() {
-        lifecycleScope.launch {
-            repository.buscarPedidos()
-                .onSuccess { listaPedidos ->
-                    pedidos.clear()
-                    pedidos.addAll(listaPedidos)
-                    adapter.notifyDataSetChanged()
-
-                    if (pedidos.isEmpty()) {
-                        binding.rvClientes.gone()
-                        binding.tvListaVazia.visible()
-                    } else {
-                        binding.rvClientes.visible()
-                        binding.tvListaVazia.gone()
-                    }
-                }
-                .onFailure { exception ->
-                    showToast("Erro ao carregar pedidos: ${exception.message}")
-                }
-        }
+        pedidos.clear()
+        pedidos.addAll(MockData.pedidos)
+        binding.rvClientes.adapter = adapter
+        adapter.notifyDataSetChanged()
     }
 
     private fun editarPedido(pedido: Pedido) {
@@ -99,25 +74,8 @@ class ListaPedidosActivity : AppCompatActivity() {
     }
 
     private fun confirmarExclusao(pedido: Pedido) {
-        AlertDialog.Builder(this)
-            .setTitle("Confirmar Exclusão")
-            .setMessage("Deseja realmente excluir este pedido?")
-            .setPositiveButton("Sim") { _, _ -> excluirPedido(pedido) }
-            .setNegativeButton("Não", null)
-            .show()
-    }
-
-    private fun excluirPedido(pedido: Pedido) {
-        lifecycleScope.launch {
-            repository.excluirPedido(pedido.id)
-                .onSuccess {
-                    showToast("Pedido excluído com sucesso")
-                    carregarPedidos()
-                }
-                .onFailure { exception ->
-                    showToast("Erro ao excluir pedido: ${exception.message}")
-                }
-        }
+        showToast("Pedido ${pedido.id} removido (Demo)")
+        carregarPedidos()
     }
 
     override fun onSupportNavigateUp(): Boolean {
